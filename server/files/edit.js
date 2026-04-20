@@ -59,22 +59,44 @@ function getMovie() {
 }
 
 function putMovie() {
-  /* Task 3.3. 
-    - Get the movie data using getMovie()
-    - Configure the XMLHttpRequest to make a PUT to /movies/:imdbID
-    - Set the 'Content-Type' appropriately for JSON data
-    - Configure the function below as the onload event handler
-    - Send the movie data as JSON
-  */
+    // 1. Ausgewählte Genres aus dem Dropdown auslesen
+    const genreSelect = document.getElementById("Genres");
+    const selectedGenres = Array.from(genreSelect.selectedOptions).map(opt => opt.value);
 
-  const xhr = new XMLHttpRequest();
-  xhr.onload = function () {
-    if (xhr.status == 200 || xhr.status === 204) {
-      location.href = "index.html";
-    } else {
-      alert("Saving of movie data failed. Status code was " + xhr.status);
-    }
-  };
+    // 2. HIER WIRD DIE VARIABLE "movie" DEFINIERT!
+    // Wir holen uns alle aktuellen Texte direkt aus den Input-Feldern
+    const movie = {
+        imdbID: document.getElementById("imdbID").value,
+        Title: document.getElementById("Title").value,
+        Released: document.getElementById("Released").value,
+        Runtime: parseInt(document.getElementById("Runtime").value),
+        Poster: document.getElementById("Poster").value,
+        Metascore: parseInt(document.getElementById("Metascore").value),
+        imdbRating: parseFloat(document.getElementById("imdbRating").value),
+        
+        Directors: document.getElementById("Directors").value.split(",").map(s => s.trim()),
+        Writers: document.getElementById("Writers").value.split(",").map(s => s.trim()),
+        Actors: document.getElementById("Actors").value.split(",").map(s => s.trim()),
+        
+        Genres: selectedGenres,
+        Plot: document.getElementById("Plot").value
+    };
+
+    // 3. Jetzt, wo "movie" existiert, können wir es abschicken
+    const xhr = new XMLHttpRequest();
+    
+    xhr.onload = function() {
+        if (xhr.status === 200 || xhr.status === 201) {
+            location.href = "index.html"; // Erfolg! Zurück zur Startseite
+        } else {
+            alert("Der Server meldet einen Fehler: Status " + xhr.status);
+        }
+    };
+
+    // Da "movie" oben definiert wurde, knallt es hier jetzt nicht mehr!
+    xhr.open("PUT", "/movies/" + movie.imdbID);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send(JSON.stringify(movie));
 }
 
 /** Loading and setting the movie data for the movie with the passed imdbID */

@@ -1,2 +1,46 @@
-/* Task 1.1. Add your movie data here 
-   and export it so it's available in server.js */
+const movies = {
+   tt0084787: {
+      "imdbID": "tt0084787",
+      "Title": "The Thing",
+      "Released": "1982-06-25",                 
+      "Runtime": 109,                            
+      "Genres": ["Horror", "Mystery", "Sci-Fi"], 
+      "Directors": ["John Carpenter"],          
+      "Writers": ["Bill Lancaster", "John W. Campbell Jr."],
+      "Actors": ["Kurt Russell", "Wilford Brimley", "Keith David"],
+      "Plot": "A research team in Antarctica is hunted by a shape-shifting alien that assumes the appearance of its victims.",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BNGViZWZmM2EtNGYzZi00ZDAyLTk3ODMtNzIyZTBjN2Y1NmM1XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg",
+      "Metascore": 57,                           
+      "imdbRating": 8.,
+   },
+   tt1645170: {
+      "imdbID": "tt1645170",
+      "Title": "The Dictator",
+      "Released": "2012-05-16",
+      "Runtime": 83,
+      "Genres": ["Comedy"],
+      "Directors": ["Larry Charles"],
+      "Writers": ["Sacha Baron Cohen", "Alec Berg", "David Mandel"],
+      "Actors": ["Sacha Baron Cohen", "Anna Faris", "John C. Reilly"],
+      "Plot": "The heroic story of a dictator who risked his life to ensure that democracy would never come to the country he so lovingly oppressed.",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BM2IwMDM3ZmQtNjQ3NS00OTFiLWI5YzEtYWE3YjI5NTk3YzkwXkEyXkFqcGc@._V1_SX300.jpg",
+      "Metascore": 58,
+      "imdbRating": 6.5,
+   },
+   tt0120812: {
+      "imdbID": "tt0120812",
+      "Title": "Rush Hour 3",
+      "Released": "2007-08-10",
+      "Runtime": 91,
+      "Genres": ["Action", "Comedy", "Crime"],
+      "Directors": ["Brett Ratner"],
+      "Writers": ["Jeff Nathanson", "Ross LaManna"],
+      "Actors": ["Jackie Chan", "Chris Tucker", "Max von Sydow"],
+      "Plot": "After an attempted assassination on Ambassador Han, Lee and Carter head to Paris to protect a French woman with knowledge of the Triads' secret leaders.",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BMTA0Nzg5NjQ0MDBeQTJeQWpwZ15BbWU3MDE4Mzg5NDE@._V1_SX300.jpg",
+      "Metascore": 44,
+      "imdbRating": 6.3,
+   }
+};
+
+module.exports = movies;
